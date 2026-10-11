@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment (contains JWT secret — never commit)
+.env
+
+# Compiled output
+dist/
+
+# Uploaded salary slips (runtime PII — never commit)
+uploads/*
+!uploads/.gitkeep
+
+# Logs
+*.log
+.vercel

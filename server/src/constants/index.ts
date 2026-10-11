@@ -1,0 +1,74 @@
+/**
+ * Domain constants and enums for the Loan Management System.
+ * Ensures strict zero-magic-values architecture across all layers.
+ */
+
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  SALES = 'SALES',
+  SANCTION = 'SANCTION',
+  DISBURSEMENT = 'DISBURSEMENT',
+  COLLECTION = 'COLLECTION',
+  BORROWER = 'BORROWER',
+}
+
+export enum LoanStatus {
+  DRAFT = 'DRAFT',
+  APPLIED = 'APPLIED',
+  SANCTIONED = 'SANCTIONED',
+  DISBURSED = 'DISBURSED',
+  REJECTED = 'REJECTED',
+  CLOSED = 'CLOSED',
+}
+
+export enum EmploymentMode {
+  SALARIED = 'SALARIED',
+  SELF_EMPLOYED = 'SELF_EMPLOYED',
+  UNEMPLOYED = 'UNEMPLOYED',
+}
+
+export enum ApplicationFunnelStage {
+  REGISTERED = 'REGISTERED',
+  PERSONAL_INFO_COMPLETED = 'PERSONAL_INFO_COMPLETED',
+  DOCUMENT_UPLOADED = 'DOCUMENT_UPLOADED',
+  LOAN_CONFIGURED = 'LOAN_CONFIGURED',
+  SUBMITTED = 'SUBMITTED',
+}
+
+export enum BreRejectionReason {
+  AGE_OUT_OF_RANGE = 'AGE_OUT_OF_RANGE',
+  INSUFFICIENT_SALARY = 'INSUFFICIENT_SALARY',
+  INVALID_PAN_FORMAT = 'INVALID_PAN_FORMAT',
+  UNEMPLOYED_STATUS = 'UNEMPLOYED_STATUS',
+}
+
+export const BUSINESS_RULES = {
+  MIN_ELIGIBLE_AGE_YEARS: 23,
+  MAX_ELIGIBLE_AGE_YEARS: 50,
+  MIN_MONTHLY_SALARY_INR: 25000,
+  PAN_REGEX_PATTERN: /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/,
+  MIN_LOAN_AMOUNT_INR: 50000,
+  MAX_LOAN_AMOUNT_INR: 500000,
+  MIN_TENURE_DAYS: 30,
+  MAX_TENURE_DAYS: 365,
+  FIXED_ANNUAL_INTEREST_RATE_PERCENT: 12.0,
+  DAYS_PER_YEAR: 365,
+  MAX_SALARY_SLIP_SIZE_BYTES: 5 * 1024 * 1024, // 5 Megabytes
+  ALLOWED_SALARY_SLIP_MIMES: [
+    'application/pdf',
+    'image/jpeg',
+    'image/png',
+  ] as const,
+} as const;
+
+export const HTTP_STATUS = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  CONFLICT: 409,
+  UNPROCESSABLE_ENTITY: 422,
+  INTERNAL_SERVER_ERROR: 500,
+} as const;

@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files (never commit secrets)
+.env
+.env.local
+.env.*.local
+server/.env
+client/.env.local
+
+# Build output
+server/dist/
+client/.next/
+client/out/
+.next/
+
+# Uploaded documents (runtime user data)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs & OS cruft
+*.log
+npm-debug.log*
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Media & local automation artifacts
+artifacts/
+artifacts_*/
+scripts/
+*.webm
+*.mp4
+*.pdf
+
+# Deployment & Cache artifacts
+.vercel/
+.railway/
+.turbo/
+*.tsbuildinfo
